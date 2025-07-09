@@ -19,3 +19,6 @@ Allego 2 file pdf della mia tesi e dell'integrazione, purtroppo il codice è sta
 però dai testi che allego potrete replicare il codice scritto il giorno della mia laurea.
 
 
+
+Questo progetto verrà ripreso in mano e successivamente migliorato
+
