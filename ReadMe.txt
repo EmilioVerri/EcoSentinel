@@ -12,3 +12,10 @@ matplotlib
 Una volta installati, eseguire nel cmd:
 python smokeapp.py
 
+
+
+Mi raccomando per un funzionamento corrette serve un buon db configurato bene con RoboFlow.
+Allego 2 file pdf della mia tesi e dell'integrazione, purtroppo il codice è stato cambiato e c'è anche una sezione che non funziona più,
+però dai testi che allego potrete replicare il codice scritto il giorno della mia laurea.
+
+
