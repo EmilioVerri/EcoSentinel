@@ -1,0 +1,202 @@
+<html>
+<head>
+  <title>Sistema di rilevamento fumi con sistema CNN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+</head>
+<body>
+  <header>
+<nav class="uk-navbar-container">
+    <div class="uk-container">
+        <div uk-navbar>
+
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-item uk-logo" href="/home" aria-label="Back to Home">EcoSentinel</a>
+
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/FrontPage">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: camera"></span>
+                            Importa Video
+                        </a>
+                    </li>
+                </ul>
+
+              <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/webcam">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: video-camera"></span>
+                            Videocamera
+                        </a>
+                    </li>
+                </ul>
+                  <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/database">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: history"></span>
+                            Database
+                        </a>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/databaseimmagini">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                            DatabaseImmagini
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+  </header>
+
+  <main class="uk-container">
+
+      <br>
+      <h1 class="uk-heading-medium">Sistema di rilevamento fumi con sistema CNN</h1>
+      <br>
+      <div class="uk-child-width-1-3@s" uk-grid>
+    <div>
+        <div class="uk-panel">Il primo passo consiste nell'utilizzare Roboflow per importare e preparare il set di immagini per il rilevamento dei fumi. Utilizzando le funzionalità di etichettatura di Roboflow, è possibile annotare correttamente le immagini per il rilevamento dei fumi, generando i file di addestramento necessari.</div>
+    </div>
+    <div>
+        <div class="uk-panel">Successivamente, utilizzando Google Colab, si addestra un modello di rilevamento fumi utilizzando Python e la libreria OpenCV. Google Colab offre un ambiente di sviluppo in cloud con potenti risorse di calcolo, consentendo di addestrare il modello su un ampio set di dati di immagini. Utilizzando la sintassi intuitiva di OpenCV, è possibile definire e addestrare una rete neurale convoluzionale (CNN) per rilevare i fumi nelle immagini.</div>
+    </div>
+    <div>
+        <div class="uk-panel">Infine, si utilizza Flask, un framework leggero per lo sviluppo di applicazioni web in Python, per implementare il sistema di rilevamento fumi. Flask offre funzionalità di routing e rendering dei template HTML, consentendo di creare una pagina web interattiva per caricare le immagini e visualizzare i risultati del rilevamento dei fumi. Utilizzando OpenCV e il modello addestrato, è possibile elaborare le immagini caricate dagli utenti e visualizzare i risultati del rilevamento dei fumi sulla pagina web.</div>
+    </div>
+</div>
+
+
+       <br>
+      <hr class="uk-divider-icon">
+      <br>
+
+<div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+        <img src="{{url_for('video')}}" alt="video" class="uk-align-center uk-width-1-1">
+      </div>
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="js-upload uk-placeholder uk-text-center">
+    <span uk-icon="icon: cloud-upload"></span>
+    <span class="uk-text-middle">Trascina qua dentro il file,</span>
+    <div uk-form-custom>
+        {{form.hidden_tag()}}
+    {{form.file(class_="custom-file-input",type="file",width="100px")}}
+        <span class="uk-link">Seleziona un file</span>
+    </div>
+</div>
+
+<progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+
+<script>
+
+    var bar = document.getElementById('js-progressbar');
+
+    UIkit.upload('.js-upload', {
+
+        url: '',
+        multiple: true,
+
+        beforeSend: function () {
+            console.log('beforeSend', arguments);
+        },
+        beforeAll: function () {
+            console.log('beforeAll', arguments);
+        },
+        load: function () {
+            console.log('load', arguments);
+        },
+        error: function () {
+            console.log('error', arguments);
+        },
+        complete: function () {
+            console.log('complete', arguments);
+        },
+
+        loadStart: function (e) {
+            console.log('loadStart', arguments);
+
+            bar.removeAttribute('hidden');
+            bar.max = e.total;
+            bar.value = e.loaded;
+        },
+
+        progress: function (e) {
+            console.log('progress', arguments);
+
+            bar.max = e.total;
+            bar.value = e.loaded;
+        },
+
+        loadEnd: function (e) {
+            console.log('loadEnd', arguments);
+
+            bar.max = e.total;
+            bar.value = e.loaded;
+        },
+
+        completeAll: function () {
+            console.log('completeAll', arguments);
+
+            setTimeout(function () {
+                bar.setAttribute('hidden', 'hidden');
+            }, 1000);
+
+            alert('Upload Completed');
+        }
+
+    });
+
+</script>
+
+
+    <div>
+        <button type="submit"  name="favorite"  value="x" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Analizza</button>
+
+
+    </div>
+</form>
+
+      <br>
+      <hr class="uk-divider-icon">
+      <br>
+      <h1 class="uk-heading-medium">Indice:</h1>
+      <br>
+
+
+
+      <div class="uk-child-width-expand@s" uk-grid>
+    <div>
+        <div class="uk-panel uk-padding uk-background-muted">
+            <a class="uk-logo" href="/webcam" aria-label="Upload Video">
+                <img src="../static/webcam.png" width="130" height="70" alt="">
+                <img class="uk-logo-inverse" src="images/logo-placeholder-light.svg" width="130" height="70" alt="">
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="uk-panel uk-padding uk-background-secondary uk-light">
+            <a class="uk-logo" href="/home" aria-label="Video Camera">
+                <img src="../static/home.jpg" width="130" height="70" alt="">
+                <img class="uk-logo-inverse" src="images/logo-placeholder-light.svg" width="130" height="70" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+</body>
+</html>

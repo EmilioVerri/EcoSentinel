@@ -1,0 +1,119 @@
+<html>
+<head>
+  <title>Sistema di rilevamento fumi con sistema CNN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+</head>
+<body>
+  <header>
+<nav class="uk-navbar-container">
+    <div class="uk-container">
+        <div uk-navbar>
+
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-item uk-logo" href="/home" aria-label="Back to Home">EcoSentinel</a>
+
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/FrontPage">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: camera"></span>
+                            Importa Video
+                        </a>
+                    </li>
+                </ul>
+
+              <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/webcam">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: video-camera"></span>
+                            Videocamera
+                        </a>
+                    </li>
+                </ul>
+                  <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/database">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: history"></span>
+                            Database
+                        </a>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/databaseimmagini">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                            DatabaseImmagini
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+  </header>
+
+  <main class="uk-container">
+
+      <br>
+      <h1 class="uk-heading-medium">Webcam EcoSentinel</h1>
+      <br>
+      <div class="uk-child-width-1-3@s" uk-grid>
+    <div>
+        <div class="uk-panel"><strong>Step 1:</strong> Utilizza una webcam per acquisire l'immagine in tempo reale.</div>
+    </div>
+    <div>
+        <div class="uk-panel"><strong>Step 2:</strong> Applica un algoritmo di rilevamento del fumo per individuare la presenza di fumo nell'immagine.</div>
+    </div>
+    <div>
+        <div class="uk-panel"><strong>Step 3:</strong> Visualizza un quadrato intorno alla regione in cui viene rilevato il fumo, fornendo così un'indicazione visiva della sua posizione.</div>
+    </div>
+</div>
+
+
+       <br>
+      <hr class="uk-divider-icon">
+      <br>
+
+
+      <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+        <img src="{{url_for('webapp')}}" alt="webcam" class="uk-align-center uk-width-1-1">
+      </div>
+
+      <br>
+      <hr class="uk-divider-icon">
+      <br>
+      <h1 class="uk-heading-medium">Indice:</h1>
+      <br>
+
+
+
+      <div class="uk-child-width-expand@s" uk-grid>
+    <div>
+        <div class="uk-panel uk-padding uk-background-muted">
+            <a class="uk-logo" href="/FrontPage" aria-label="Upload Video">
+                <img src="../static/upload.png" width="130" height="70" alt="">
+                <img class="uk-logo-inverse" src="images/logo-placeholder-light.svg" width="130" height="70" alt="">
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="uk-panel uk-padding uk-background-secondary uk-light">
+            <a class="uk-logo" href="/webcam" aria-label="Video Camera">
+                <img src="../static/home.jpg" width="130" height="70" alt="">
+                <img class="uk-logo-inverse" src="images/logo-placeholder-light.svg" width="130" height="70" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+</body>
+</html>

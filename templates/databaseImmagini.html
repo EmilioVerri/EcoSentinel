@@ -1,0 +1,134 @@
+<html>
+<head>
+  <title>Sistema di rilevamento fumi con sistema CNN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+</head>
+<body>
+  <header>
+<nav class="uk-navbar-container">
+    <div class="uk-container">
+        <div uk-navbar>
+
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-item uk-logo" href="/home" aria-label="Back to Home">EcoSentinel</a>
+
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/FrontPage">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: camera"></span>
+                            Importa Video
+                        </a>
+                    </li>
+                </ul>
+
+              <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/webcam">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: video-camera"></span>
+                            Videocamera
+                        </a>
+                    </li>
+                </ul>
+                 <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/database">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: history"></span>
+                            Database
+                        </a>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/databaseimmagini">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                            DatabaseImmagini
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+  </header>
+   <main class="uk-container">
+          <br>
+      <h1 class="uk-heading-medium">Storico rilevazione di fumi</h1>
+      <br>
+      <hr class="uk-divider-icon">
+      <br>
+      <button class="uk-button uk-button-primary" onclick="deleteAllImages()">Cancella Tutte le Immagini</button>
+
+      <script>
+        function deleteAllImages() {
+          // Effettua una richiesta HTTP POST per cancellare le immagini
+          fetch('/delete_images', { method: 'POST' })
+            .then(response => {
+              if (response.ok) {
+                // Ricarica la pagina dopo aver cancellato le immagini
+                window.location.reload();
+              } else {
+                alert('Errore durante la cancellazione delle immagini.');
+              }
+            })
+            .catch(error => {
+              console.error('Errore durante la cancellazione delle immagini:', error);
+              alert('Errore durante la cancellazione delle immagini.');
+            });
+        }
+      </script>
+      <table class="uk-table uk-table-responsive uk-table-divider">
+    <thead>
+        <tr>
+            <th>Elemento Rilevato</th>
+             <th>Data e Ora della rilevazione</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for image in image_filenames %}
+        <tr>
+            <td><img src="{{ url_for('static', filename='images/' + image.replace(' ', '_')) }}" alt="{{ image }}"></td>
+            <td> <p>Rilevazione:</p>
+            <strong>   <span class="detection-label">{{ image.split('_')[0] }} {{ image.split('_')[1] }}</span></strong>
+                <p>Orario:</p>
+             <strong><span class="timestamp">
+                  {{ image.split('_')[3] }}  -  {{ image.split('_')[4].split('.')[0] }}
+                </span></strong>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+ <br>
+      <hr class="uk-divider-icon">
+      <br>
+
+      <div class="uk-child-width-1-3@s" uk-grid>
+    <div>
+        <div class="uk-panel">Salute e sicurezza: Monitorare la rilevazione dei fumi è essenziale per proteggere la salute delle persone e prevenire potenziali rischi dovuti all'esposizione a sostanze tossiche o pericolose.</div>
+    </div>
+    <div>
+        <div class="uk-panel">Prevenzione incendi: La rilevazione dei fumi è fondamentale per rilevare precocemente la presenza di potenziali incendi, consentendo una rapida risposta e intervento per evitare gravi danni alle persone e alle strutture.</div>
+    </div>
+    <div>
+        <div class="uk-panel">Conservazione dell'ambiente: Tenere traccia delle rilevazioni dei fumi aiuta a valutare e controllare l'impatto ambientale delle attività umane, garantendo la conformità alle normative e promuovendo la sostenibilità.</div>
+    </div>
+</div>
+
+
+       <br>
+      <hr class="uk-divider-icon">
+      <br>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,218 @@
+<html>
+<head>
+  <title>Sistema di rilevamento fumi con sistema CNN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+</head>
+<body>
+  <header>
+<nav class="uk-navbar-container">
+    <div class="uk-container">
+        <div uk-navbar>
+
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-item uk-logo" href="/home" aria-label="Back to Home">EcoSentinel</a>
+
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/FrontPage">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: camera"></span>
+                            Importa Video
+                        </a>
+                    </li>
+                </ul>
+
+              <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/webcam">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: video-camera"></span>
+                            Videocamera
+                        </a>
+                    </li>
+                </ul>
+                 <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/database">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: history"></span>
+                            Database
+                        </a>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="/databaseimmagini">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                            DatabaseImmagini
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+  </header>
+
+  <main class="uk-container">
+
+      <br>
+      <h1 class="uk-heading-medium">Sistema di rilevamento fumi con sistema CNN</h1>
+      <br>
+      <div class="uk-child-width-1-3@s" uk-grid>
+    <div>
+        <div class="uk-panel">Il primo passo consiste nell'utilizzare Roboflow per importare e preparare il set di immagini per il rilevamento dei fumi. Utilizzando le funzionalità di etichettatura di Roboflow, è possibile annotare correttamente le immagini per il rilevamento dei fumi, generando i file di addestramento necessari.</div>
+    </div>
+    <div>
+        <div class="uk-panel">Successivamente, utilizzando Google Colab, si addestra un modello di rilevamento fumi utilizzando Python e la libreria OpenCV. Google Colab offre un ambiente di sviluppo in cloud con potenti risorse di calcolo, consentendo di addestrare il modello su un ampio set di dati di immagini. Utilizzando la sintassi intuitiva di OpenCV, è possibile definire e addestrare una rete neurale convoluzionale (CNN) per rilevare i fumi nelle immagini.</div>
+    </div>
+    <div>
+        <div class="uk-panel">Infine, si utilizza Flask, un framework leggero per lo sviluppo di applicazioni web in Python, per implementare il sistema di rilevamento fumi. Flask offre funzionalità di routing e rendering dei template HTML, consentendo di creare una pagina web interattiva per caricare le immagini e visualizzare i risultati del rilevamento dei fumi. Utilizzando OpenCV e il modello addestrato, è possibile elaborare le immagini caricate dagli utenti e visualizzare i risultati del rilevamento dei fumi sulla pagina web.</div>
+    </div>
+</div>
+
+
+       <br>
+      <hr class="uk-divider-icon">
+      <br>
+
+
+      <div class="uk-slider-container-offset" uk-slider>
+
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/python.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Python</h3>
+                        <p>Python è un linguaggio di programmazione ad alto livello, interpretato e general-purpose. È noto per la sua sintassi leggibile e intuitiva, che favorisce la scrittura di codice chiaro e conciso. Python è ampiamente utilizzato in diversi settori, come lo sviluppo web, l'analisi dei dati, l'intelligenza artificiale e molto altro. Offre una vasta libreria standard e una vasta gamma di librerie di terze parti che rendono possibile lo sviluppo di una vasta gamma di applicazioni.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/flask.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Flask</h3>
+                        <p>Flask è un framework leggero e flessibile per lo sviluppo di applicazioni web in Python. È conosciuto come un micro-framework perché fornisce solo le funzionalità essenziali per creare applicazioni web, consentendo allo sviluppatore di avere un maggiore controllo sul progetto. Flask offre un'architettura semplice e modulare, consentendo di aggiungere funzionalità in modo graduale. È ampiamente utilizzato per creare API RESTful, siti web e applicazioni web di piccole e medie dimensioni. Flask supporta l'utilizzo di template HTML per generare pagine dinamiche e offre un sistema di routing per gestire le richieste dei client.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/googlecollab.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">GoogleCollab</h3>
+                        <p>Google Colab è una piattaforma di notebook interattivi basata su cloud che consente di scrivere e eseguire codice Python. Offre l'accesso gratuito alle risorse di calcolo, come CPU, GPU e TPU, ed è particolarmente adatto per progetti di machine learning e data science. Con Google Colab, è possibile eseguire il codice in ambienti virtuali senza dover configurare l'ambiente di sviluppo localmente.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/roboflow.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Roboflow</h3>
+                        <p>Roboflow è una piattaforma per la preparazione dei dati di machine learning. Consente di importare, etichettare e preparare i dati di addestramento in modo efficiente. Roboflow supporta diversi formati di dati, come immagini, video e dati tabulari, e offre strumenti per etichettare gli oggetti di interesse nelle immagini e generare i file di addestramento necessari.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/numpy.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">NumPy</h3>
+                        <p>NumPy è una libreria fondamentale per il calcolo scientifico in Python. Offre supporto per array multidimensionali e funzioni di alto livello per operazioni matematiche, manipolazione dei dati e calcolo scientifico. NumPy fornisce un'implementazione efficiente delle operazioni di algebra lineare, trasformate di Fourier e altro ancora. È ampiamente utilizzato nelle applicazioni di data science, machine learning e analisi numerica grazie alla sua efficienza e versatilità.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/opencv.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">OpenCv</h3>
+                        <p>OpenCV (Open Source Computer Vision Library) è una libreria open source ampiamente utilizzata per il computer vision e l'elaborazione delle immagini. Fornisce un vasto insieme di algoritmi e strumenti per manipolare, analizzare e comprendere le immagini e i video. Alcune delle caratteristiche principali di OpenCV per Python includono: 1) l'accesso facile e veloce ai pixel delle immagini, 2) il supporto per il caricamento, la visualizzazione e il salvataggio di immagini e video, 3) la manipolazione delle immagini, come il ridimensionamento, il ritaglio e la rotazione, 4) l'applicazione di filtri e trasformazioni alle immagini, 5) il rilevamento di oggetti, volti e caratteristiche nelle immagini, 6) il riconoscimento di pattern e l'apprendimento automatico, 7) l'integrazione con altre librerie di Python per lo sviluppo di applicazioni complete di computer vision. OpenCV in Python è ampiamente utilizzato in settori come la robotica, la sicurezza, la visione artificiale e la realtà aumentata.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/ultralytics.jpeg" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Ultralytics</h3>
+                        <p>Ultralytics è una libreria open source per il deep learning sviluppata in Python, progettata per semplificare lo sviluppo e l'implementazione di modelli di intelligenza artificiale avanzati. Alcune delle caratteristiche salienti di Ultralytics includono: 1) l'integrazione diretta con PyTorch, un popolare framework di deep learning, 2) l'accesso a una vasta gamma di modelli pre-addestrati per compiti comuni come la classificazione di immagini, la rilevazione di oggetti e l'elaborazione del linguaggio naturale, 3) la facilità di utilizzo grazie a una sintassi intuitiva e semplificata, 4) la possibilità di addestrare i modelli su grandi set di dati distribuiti, 5) l'elaborazione rapida delle immagini e dei video grazie all'ottimizzazione di GPU e TPU, 6) il supporto per l'annotazione e la visualizzazione dei risultati delle inferenze in modo interattivo, 7) la possibilità di integrare modelli di intelligenza artificiale nelle applicazioni Python esistenti, 8) una comunità attiva e supporto continuo da parte degli sviluppatori di Ultralytics. Ultralytics è una potente libreria per lo sviluppo di applicazioni di deep learning in Python, offrendo strumenti e risorse per sfruttare appieno il potenziale dell'intelligenza artificiale.</p>
+                    </div>
+                </div>
+            </li>
+             <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="../static/uikit.png" width="1800" height="1200" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">UIkit</h3>
+                        <p>UIkit è un framework front-end leggero e altamente personalizzabile per la creazione di interfacce utente moderne e reattive. Offre una vasta gamma di componenti predefiniti, come bottoni, modali, form, navigazione e molto altro, che possono essere facilmente integrati nei progetti web. Con UIkit, è possibile creare layout flessibili e responsive utilizzando un sistema di griglia semplice e intuitivo. Il framework fornisce anche funzionalità avanzate come animazioni, effetti di transizione, supporto per touch e mobile, e una sintassi chiara e pulita basata su classi CSS. UIkit è altamente personalizzabile grazie alla sua struttura modulare e offre anche la possibilità di estendere le funzionalità tramite plugin. È ampiamente utilizzato dagli sviluppatori per creare interfacce utente moderne, intuitive e di alta qualità.</p>
+                        </div>
+                </div>
+            </li>
+        </ul>
+
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+    </div>
+
+    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+
+</div>
+      <br>
+      <hr class="uk-divider-icon">
+      <br>
+      <h1 class="uk-heading-medium">Testa il sistema:</h1>
+      <br>
+
+
+
+      <div class="uk-child-width-expand@s" uk-grid>
+    <div>
+        <div class="uk-panel uk-padding uk-background-muted">
+            <a class="uk-logo" href="/Frontpage" aria-label="Upload Video">
+                <img src="../static/upload.png" width="130" height="70" alt="">
+                <img class="uk-logo-inverse" src="images/logo-placeholder-light.svg" width="130" height="70" alt="">
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="uk-panel uk-padding uk-background-secondary uk-light">
+            <a class="uk-logo" href="/webcam" aria-label="Video Camera">
+                <img src="../static/webcam.png" width="130" height="70" alt="">
+                <img class="uk-logo-inverse" src="images/logo-placeholder-light.svg" width="130" height="70" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+</body>
+</html>
